@@ -15,6 +15,13 @@ function ToastPlayground() {
   const [variant, setVariant] = React.useState(VARIANT_OPTIONS[0]);
   const {  add , reset} = React.useContext(ToastContext);
   
+  /* se a stack mudar: 
+    provider é rerenderizado 
+    -> reset é novo 
+    -> passado novo valor pro hook 
+    -> vai remover e add listener de novo :/
+
+    solution: useCallback em volta do reset*/
   useEscapeKey(reset);
 
   const handleChangeMessage = (e) => {

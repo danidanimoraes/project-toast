@@ -13,5 +13,5 @@ export const useEscapeKey = (escapeAction) => {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     }
-  })
+  }, [escapeAction])
 }
